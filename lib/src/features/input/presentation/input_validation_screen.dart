@@ -11,9 +11,11 @@ class InputValidationScreen extends StatefulWidget {
 class _InputValidationScreenState extends State<InputValidationScreen> {
   final _textController1 = TextEditingController();
   final _textController2 = TextEditingController();
+  final _textController3 = TextEditingController();
   final validator = Validator();
   final _formKey = GlobalKey<FormState>();
 
+  // validator ...
   void _submit() {
     if (_formKey.currentState!.validate()) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -48,7 +50,7 @@ class _InputValidationScreenState extends State<InputValidationScreen> {
                 autocorrect: false,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: "Hier kommt der Input rein",
+                  labelText: "Input",
                 ),
                 controller: _textController1,
                 validator: validator.validateEmail,
@@ -57,10 +59,19 @@ class _InputValidationScreenState extends State<InputValidationScreen> {
                 autocorrect: false,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(),
-                  labelText: "Hier kommt ein Alter rein",
+                  labelText: "Input",
                 ),
                 controller: _textController2,
                 validator: validator.validateAge,
+              ),
+              TextFormField(
+                autocorrect: false,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Input",
+                ),
+                controller: _textController3,
+                validator: validator.validatePassword,
               ),
               FilledButton(onPressed: _submit, child: Text("Submit")),
             ],
