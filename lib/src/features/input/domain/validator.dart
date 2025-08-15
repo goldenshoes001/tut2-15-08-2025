@@ -1,5 +1,5 @@
 class Validator {
-  String? validateEmail(String? value) {
+  String? validateEmail(value) {
     if (value == null || value.isEmpty) {
       return 'Bitte E-Mail eingeben';
     }
@@ -9,11 +9,7 @@ class Validator {
     return null;
   }
 
-  String? validatePassword(String? value) {
-    return null;
-  }
-
-  String? validateAge(String? value) {
+  String? validateAge(value) {
     if (value == null || value.isEmpty) {
       return "Bitte Alter eingeben";
     }
@@ -23,6 +19,10 @@ class Validator {
     if (age <= 16) {
       return "No registration allowed";
     }
+    return null;
+  }
+
+  String? validatePassword(value) {
     return null;
   }
 }

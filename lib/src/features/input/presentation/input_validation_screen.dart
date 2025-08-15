@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:input_validation/src/app.dart';
 import 'package:input_validation/src/features/input/domain/validator.dart';
 
 class InputValidationScreen extends StatefulWidget {
@@ -10,7 +9,8 @@ class InputValidationScreen extends StatefulWidget {
 }
 
 class _InputValidationScreenState extends State<InputValidationScreen> {
-  final _textController = TextEditingController();
+  final _textController1 = TextEditingController();
+  final _textController2 = TextEditingController();
   final validator = Validator();
   final _formKey = GlobalKey<FormState>();
 
@@ -50,8 +50,17 @@ class _InputValidationScreenState extends State<InputValidationScreen> {
                   border: OutlineInputBorder(),
                   labelText: "Hier kommt der Input rein",
                 ),
-                controller: _textController,
+                controller: _textController1,
                 validator: validator.validateEmail,
+              ),
+              TextFormField(
+                autocorrect: false,
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                  labelText: "Hier kommt ein Alter rein",
+                ),
+                controller: _textController2,
+                validator: validator.validateAge,
               ),
               FilledButton(onPressed: _submit, child: Text("Submit")),
             ],
