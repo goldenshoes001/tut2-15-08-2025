@@ -56,6 +56,18 @@ class Validator {
     //
     // davon 2 kleinbuchstaben
     // REGEX!!!
+
+    int counter = 0;
+    for (var element in value.runes) {
+      if (String.fromCharCode(element) ==
+          String.fromCharCode(element).toLowerCase()) {
+        counter++;
+      }
+      ;
+    }
+    if (counter < 2) {
+      return "mindestens 2 Kleinbuchstaben";
+    }
     final regex = RegExp(
       r'^(?=(?:.*[a-z]){2,})(?=.*[!@#\$%^&*(),.?":{}|<>]).+$',
     );
