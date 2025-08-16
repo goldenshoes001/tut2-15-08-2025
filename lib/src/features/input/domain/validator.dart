@@ -68,14 +68,11 @@ class Validator {
     if (counter < 2) {
       return "mindestens 2 Kleinbuchstaben";
     }
-    final regex = RegExp(
-      r'^(?=(?:.*[a-z]){2,})(?=.*[!@#\$%^&*(),.?":{}|<>]).+$',
-    );
 
-    if (!regex.hasMatch(value)) {
-      return "Das Password muss mindestens 2 Kleinbuchstaben und mindestens 1 Sonderzeichen enthalten";
+    final specialCharRegex = RegExp(r'[^\w\s]');
+    if (!specialCharRegex.hasMatch(value)) {
+      return "Das Passwort muss mindestens 1 Sonderzeichen enthalten";
     }
-
     // 1 sonderzeichen
 
     return null;
